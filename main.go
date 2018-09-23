@@ -1,13 +1,13 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"strings"
-	"io/ioutil"
-	"regexp"
-	"go/build"
 	"errors"
+	"fmt"
+	"go/build"
+	"io/ioutil"
+	"os"
+	"regexp"
+	"strings"
 )
 
 type config struct {
@@ -134,7 +134,7 @@ func generateGodashCodeForType(imp string, importLocation string) error {
 			return err
 		}
 		if tpl == "_ComplexType" {
-			err := searchAndReplaceInFile(file, "_ImportLocation", importLocation)
+			err := searchAndReplaceInFile(file, "_ImportLocation", importLocation[:len(importLocation)-1])
 			if err != nil {
 				return err
 			}
